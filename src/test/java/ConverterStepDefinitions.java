@@ -21,6 +21,6 @@ public class ConverterStepDefinitions {
 
     @Then("{string} is returned for the single minutes row")
     public void rowIsReturnedForTheSingleMinutesRow(String row) {
-        assertThat(converterUnderTest.getOneSecondRow(), is(row));
+        assertThat(converterUnderTest.getOneMinuteRow(), is(row));
     }
 }

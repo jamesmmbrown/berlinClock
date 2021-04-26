@@ -14,9 +14,23 @@ class ConverterTest {
     }
 
     @Test
-    void zeroSecondsIsRowOOOO() {
-        int seconds = 0;
+    void zeroMinutesIsRowOOOO() {
+        int minutes = 0;
         String expectedRow = "OOOO";
-        assertThat(converterUndertest.convertSecondsToOneMinuteRow(seconds), is(expectedRow));
+        assertThat(converterUndertest.convertMinutesToOneMinuteRow(minutes), is(expectedRow));
+    }
+
+    @Test
+    void twoMinutesIsRowYYOO() {
+        int minutes = 2;
+        String expectedRow = "YYOO";
+        assertThat(converterUndertest.convertMinutesToOneMinuteRow(minutes), is(expectedRow));
+    }
+
+    @Test
+    void fourMinutesIsRowYYYY() {
+        int minutes = 4;
+        String expectedRow = "YYYY";
+        assertThat(converterUndertest.convertMinutesToOneMinuteRow(minutes), is(expectedRow));
     }
 }

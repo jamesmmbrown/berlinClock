@@ -33,4 +33,25 @@ class ConverterTest {
         String expectedRow = "YYYY";
         assertThat(converterUndertest.convertMinutesToOneMinuteRow(minutes), is(expectedRow));
     }
+
+    @Test
+    void fourMinutesIsRowOOOOOOOOOOO() {
+        int minutes = 4;
+        String expectedRow = "OOOOOOOOOOO";
+        assertThat(converterUndertest.convertMinutesToFiveMinuteRow(minutes), is(expectedRow));
+    }
+
+    @Test
+    void twentyTwoMinutesIsRowYYRYOOOOOOO() {
+        int minutes = 22;
+        String expectedRow = "YYRYOOOOOOO";
+        assertThat(converterUndertest.convertMinutesToFiveMinuteRow(minutes), is(expectedRow));
+    }
+
+    @Test
+    void fiftyFiveMinutesIsRowYYRYYRYYRYY() {
+        int minutes = 55;
+        String expectedRow = "YYRYYRYYRYY";
+        assertThat(converterUndertest.convertMinutesToFiveMinuteRow(minutes), is(expectedRow));
+    }
 }

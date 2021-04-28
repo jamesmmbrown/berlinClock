@@ -23,4 +23,9 @@ public class ConverterStepDefinitions {
     public void rowIsReturnedForTheSingleMinutesRow(String row) {
         assertThat(converterUnderTest.getOneMinuteRow(), is(row));
     }
+
+    @Then("{string} is returned for the five minutes row")
+    public void rowIsReturnedForTheFiveMinutesRow(String row) {
+        assertThat(converterUnderTest.getFiveMinutesRow(), is(row));
+    }
 }

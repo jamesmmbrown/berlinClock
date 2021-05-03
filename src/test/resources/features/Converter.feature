@@ -22,3 +22,25 @@ Feature: Converter
       | 12:04:59 | OOOOOOOOOOO   |
       | 12:23:00 | YYRYOOOOOOO   |
       | 12:35:00 | YYRYYRYOOOO   |
+
+  Scenario Outline: As a clock user I want to be able to see single hours so that I can tell what hour it is
+    Given I have started the converter
+    And I enter "<time>"
+    Then "<singleHourRow>" is returned for the single hours row
+    Examples:
+      | time     | singleHourRow  |
+      | 00:00:00 | OOOO           |
+      | 23:59:59 | RRRO           |
+      | 02:04:00 | RROO           |
+      | 14:35:00 | RRRR           |
+
+  Scenario Outline: As a clock user I want to be able to see five hours so that I can tell higher minute amounts more easily at a glance
+    Given I have started the converter
+    And I enter "<time>"
+    Then "<fiveHourRow>" is returned for the five hours row
+    Examples:
+      | time     | fiveHourRow |
+      | 00:00:00 | OOOO        |
+      | 23:59:59 | RRRR        |
+      | 02:04:00 | OOOO        |
+      | 16:35:00 | RRRO        |

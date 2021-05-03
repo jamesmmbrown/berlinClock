@@ -54,4 +54,32 @@ class ConverterTest {
         String expectedRow = "YYRYYRYYRYY";
         assertThat(converterUndertest.convertMinutesToFiveMinuteRow(minutes), is(expectedRow));
     }
+
+    @Test
+    void zeroHoursIsRowOOOO() {
+        int hours = 0;
+        String expectedRow = "OOOO";
+        assertThat(converterUndertest.convertHoursToOneHourRow(hours), is(expectedRow));
+    }
+
+    @Test
+    void twelveHoursIsRowRROO() {
+        int hours = 12;
+        String expectedRow = "RROO";
+        assertThat(converterUndertest.convertHoursToOneHourRow(hours), is(expectedRow));
+    }
+
+    @Test
+    void twentyHoursIsRowRRRR() {
+        int hours = 20;
+        String expectedRow = "RRRR";
+        assertThat(converterUndertest.convertHoursToFiveHourRow(hours), is(expectedRow));
+    }
+
+    @Test
+    void nineteenHoursIsRowRRRO() {
+        int hours = 19;
+        String expectedRow = "RRRO";
+        assertThat(converterUndertest.convertHoursToFiveHourRow(hours), is(expectedRow));
+    }
 }

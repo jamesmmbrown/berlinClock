@@ -82,4 +82,18 @@ class ConverterTest {
         String expectedRow = "RRRO";
         assertThat(converterUndertest.convertHoursToFiveHourRow(hours), is(expectedRow));
     }
+
+    @Test
+    void zeroSecondsIsRowY() {
+        int seconds = 00;
+        String expectedRow = "Y";
+        assertThat(converterUndertest.convertSecondsToSecondRow(seconds), is(expectedRow));
+    }
+
+    @Test
+    void fiftyNineSecondsIsRowO() {
+        int seconds = 59;
+        String expectedRow = "O";
+        assertThat(converterUndertest.convertSecondsToSecondRow(seconds), is(expectedRow));
+    }
 }

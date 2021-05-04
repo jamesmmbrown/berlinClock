@@ -55,6 +55,10 @@ public class Converter {
         return hourRow;
     }
 
+    public String convertSecondsToSecondRow(int seconds) {
+        return (seconds % 2 == 0) ? "Y" : "O";
+    }
+
     public String convertHoursToFiveHourRow(int hours) {
         String hourRow = "OOOO";
         int h = hours / 5;
